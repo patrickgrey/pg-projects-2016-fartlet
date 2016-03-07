@@ -1,6 +1,8 @@
 // generated on 2015-12-10 using generator-gulp-webapp 1.0.3
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
+import svgstore from 'gulp-svgstore';
+import inject from 'gulp-inject';
 import browserSync from 'browser-sync';
 import del from 'del';
 import {stream as wiredep} from 'wiredep';

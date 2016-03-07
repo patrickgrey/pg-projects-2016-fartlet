@@ -1,0 +1,50 @@
+/**
+ * CONTROLS
+ */
+
+/* Default styles */
+ input[type="submit"],
+ input[type="reset"],
+ input[type="button"],
+ button {
+   position: absolute;
+   width: $ft-controls-default-size;
+   height: $ft-controls-default-size;
+   border-radius: 50%;
+   background: #999;
+   border: 5px solid white;
+ }
+
+.ft-controls-start {
+  bottom: $ft-controls-start-bottom;
+  right: $ft-controls-start-right;
+  width: $ft-controls-start-size;
+  height: $ft-controls-start-size;
+  background: $control-start;
+}
+
+
+//$ft-controls-adjust-length-bottom
+.ft-controls-adjust-length {
+  bottom: $ft-controls-adjust-length-bottom;
+  right: $ft-controls-adjust-length-right;
+  // opacity: 0.5;
+  background: $control-adjust-length
+}
+
+@media (min-width: 250px) {
+
+  .ft-controls-start {
+    bottom: $ft-controls-start-bottom * 1.3;
+    right: $ft-controls-start-right * 1.3;
+    width: $ft-controls-start-size * 1.3;
+    height: $ft-controls-start-size * 1.3;
+  }
+
+  .ft-controls-adjust-length {
+    bottom: $ft-controls-adjust-length-bottom * 1.3;
+    right: $ft-controls-adjust-length-right * 1.3;
+    width: $ft-controls-default-size * 1.3;
+    height: $ft-controls-default-size * 1.3;
+  }
+}

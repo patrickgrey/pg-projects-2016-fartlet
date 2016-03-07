@@ -1,6 +1,13 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+}
+
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  font-size: 20px;
+  font-size: 1.2rem;
   color: white;
   background: $slate-grey;
 }
@@ -9,23 +16,23 @@ a {
   color: yellow;
 }
 
-.ft-svg-controls {
-  display: none;
-}
+/**
+ * ACCESSIBLE SET UP
+ */
 
-// If browser supports js and inline SVG, hide all and use accessible SVG.
-.js.inlinesvg {
-  
-  .ft-svg-controls {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    width: 100vw;
-    min-height: 100vh;
-  }
-  
-  .ft-skip-to-player, .ft-title, .ft-information, .ft-audio {
-    display: none;
-  }
-}
+
+ .ft-svg-controls, .ft-information {
+   display: none;
+ }
+
+ // If browser supports js and inline SVG, hide all and use accessible SVG.
+ .js.inlinesvg {
+
+   .ft-svg-controls {
+     display: block;
+   }
+
+   .ft-audio {
+     display: none;
+   }
+ }

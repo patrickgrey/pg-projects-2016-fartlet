@@ -17,51 +17,40 @@
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-    
+
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="/bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
   </head>
   <body>
-    
-    <!-- Skip link left in despite good advice from http://www.iheni.com/skip-links-on-mobile-and-tablets/ -->
-    <!-- The skip link needs to be hidden from most readers but screen readers on mobile should see this
-     and it will allow them to enable accessible controls.-->
-    <a href="#ft-audio-id" class="ft-skip-to-player">Skip to controls.</a>
-    
-    
-    
+
     <h1 class="ft-title">Fartlets!</h1>
-    
-    
-    
+
+    <div class="ft-svg-controls">
+      <button class="ft-controls-start" aria-label="Start fartleks"></button>
+      <button class="ft-controls-adjust-length" aria-label="Adjust fartlek length (seconds)"></button>
+    </div>
+
+
+
     <div id="ft-information-id" class="ft-information">
-      
+
       <p>This app allows you to listen to <span class="ft-js-only-text">and watch </span>a Fartlek countdown to time your runs.<span class="ft-js-only-text"> You can adjust the time for each fartlek and the number of sets.</span></p>
       <p class="ft-js-only-text">Drag the buttons at the edge of the circles to change settings. Press the big button to start running.</p>
       <p>You can read more about <a href="https://en.wikipedia.org/wiki/Fartlek">Fartleks on Wikipedia</a>.</p>
-      <p>Developed by the incurably immature patrickgrey.co.uk</p>
-      
+      <p>Developed by the rather immature patrickgrey.co.uk</p>
+
     </div>
-    
-    
-    
-    
-    <svg id="ft-svg-controls-id" class="ft-svg-controls" version="1.1" x="0px" y="0px">
-        
-    </svg>
-    
-    
-    
-    
+
+
     <audio  id="ft-audio-id" class="ft-audio" controls preload loop>
       <source src="audio/countdown-test-1.ogg">
       <source src="audio/countdown-test-1.mp3">
       <p>Your browser does not support audio in this app but you can download the <a href="audio/countdown-default-1.mp3">mp3</a> or the <a href="audio/countdown-default-1.ogg">ogg</a> file<span class="ft-js-only-text"> and you can still use the visual countdown</span>.</p>
     </audio>
-      
-      
-    
+
+
+
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
       (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
@@ -75,6 +64,7 @@
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <!-- <script src="scripts/svg4everybody.min.js"></script> -->
     <script src="/bower_components/gsap/src/minified/TweenLite.min.js"></script>
     <script src="/bower_components/gsap/src/minified/TimelineLite.min.js"></script>
     <script src="/bower_components/gsap/src/minified/utils/Draggable.min.js"></script>
@@ -84,7 +74,7 @@
     <script src="/bower_components/gsap/src/minified/easing/EasePack.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-    
+
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
