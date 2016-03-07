@@ -36,7 +36,7 @@
 .ft-control-adjust-length {
   bottom: $ft-control-adjust-length-bottom;
   right: $ft-control-adjust-length-right;
-  // opacity: 0.5;
+  opacity: 0.5;
   background: $ft-control-adjust-length
 }
 
@@ -75,7 +75,13 @@
   right: $ft-control-reset-right;
 }
 
-@media (min-width: 250px) {
+@media (min-width: 250px) and (orientation: portrait) {
+
+  .ft-control-adjust-length, .ft-control-sets-plus, .ft-control-sets-minus,
+  .ft-control-reset, .ft-control-sets-count {
+    width: $ft-control-default-size * 1.3;
+    height: $ft-control-default-size * 1.3;
+  }
 
   .ft-control-start {
     bottom: $ft-control-start-bottom * 1.3;
@@ -87,7 +93,29 @@
   .ft-control-adjust-length {
     bottom: $ft-control-adjust-length-bottom * 1.3;
     right: $ft-control-adjust-length-right * 1.3;
-    width: $ft-control-default-size * 1.3;
-    height: $ft-control-default-size * 1.3;
+
+  }
+
+  .ft-control-adjust-length-count {
+    bottom: $ft-control-start-bottom - 4.5rem;
+    right: $ft-control-start-right + 2.7rem;
+    font-size: 2.5rem;
+  }
+
+  .ft-control-sets-plus {
+    bottom: $ft-control-sets-plus-bottom * 1.3;
+    right: $ft-control-sets-plus-right * 1.3;
+  }
+
+  .ft-control-sets-minus {
+    bottom: $ft-control-sets-minus-bottom * 1.3;
+    right: $ft-control-sets-minus-right * 1.3;
+  }
+
+  .ft-control-sets-count {
+    font-size: 1.8rem;
+    bottom: $ft-control-sets-count-bottom * 1.3;
+    right: $ft-control-sets-count-right * 1.3;
+    line-height: 3.8rem;
   }
 }
