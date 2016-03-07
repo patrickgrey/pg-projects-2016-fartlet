@@ -17,6 +17,13 @@
 
  .ft-control-info {
    position: absolute;
+   -webkit-user-select: none; /* Chrome/Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+
+  /* Rules below not implemented in browsers yet */
+  -o-user-select: none;
+  user-select: none;
  }
 
 .ft-control-start {
@@ -28,8 +35,10 @@
 }
 
 .ft-control-adjust-length-count {
+  width: 3rem;
+  text-align: center;
   bottom: $ft-control-start-bottom - 5.5rem;
-  right: $ft-control-start-right + 0.8rem;
+  right: $ft-control-start-right + 0.95rem;
   font-size: 2rem;
 }
 
@@ -62,9 +71,9 @@
   font-size: 1.4rem;
   bottom: $ft-control-sets-count-bottom;
   right: $ft-control-sets-count-right;
-  background: $slate-grey;
+  background: #666;
   border-radius: 50%;
-  border: 5px solid white;
+  border: 5px solid #666;
   text-align: center;
   line-height: 2.5rem;
 }
@@ -79,43 +88,49 @@
 
   .ft-control-adjust-length, .ft-control-sets-plus, .ft-control-sets-minus,
   .ft-control-reset, .ft-control-sets-count {
-    width: $ft-control-default-size * 1.3;
-    height: $ft-control-default-size * 1.3;
+    width: $ft-control-default-size * $ft-control-scale-a;
+    height: $ft-control-default-size * $ft-control-scale-a;
   }
 
   .ft-control-start {
-    bottom: $ft-control-start-bottom * 1.3;
-    right: $ft-control-start-right * 1.3;
-    width: $ft-control-start-size * 1.3;
-    height: $ft-control-start-size * 1.3;
+    bottom: $ft-control-start-bottom * $ft-control-scale-a;
+    right: $ft-control-start-right * $ft-control-scale-a;
+    width: $ft-control-start-size * $ft-control-scale-a;
+    height: $ft-control-start-size * $ft-control-scale-a;
   }
 
   .ft-control-adjust-length {
-    bottom: $ft-control-adjust-length-bottom * 1.3;
-    right: $ft-control-adjust-length-right * 1.3;
+    bottom: $ft-control-adjust-length-bottom * $ft-control-scale-a;
+    right: $ft-control-adjust-length-right * $ft-control-scale-a;
 
   }
 
   .ft-control-adjust-length-count {
     bottom: $ft-control-start-bottom - 4.5rem;
-    right: $ft-control-start-right + 2.7rem;
+    right: $ft-control-start-right + 3.5rem;
     font-size: 2.5rem;
   }
 
   .ft-control-sets-plus {
-    bottom: $ft-control-sets-plus-bottom * 1.3;
-    right: $ft-control-sets-plus-right * 1.3;
+    bottom: $ft-control-sets-plus-bottom * $ft-control-scale-a;
+    right: $ft-control-sets-plus-right * $ft-control-scale-a;
   }
 
   .ft-control-sets-minus {
-    bottom: $ft-control-sets-minus-bottom * 1.3;
-    right: $ft-control-sets-minus-right * 1.3;
+    bottom: $ft-control-sets-minus-bottom * $ft-control-scale-a;
+    right: $ft-control-sets-minus-right * $ft-control-scale-a;
   }
 
   .ft-control-sets-count {
     font-size: 1.8rem;
-    bottom: $ft-control-sets-count-bottom * 1.3;
-    right: $ft-control-sets-count-right * 1.3;
+    bottom: $ft-control-sets-count-bottom * $ft-control-scale-a;
+    right: $ft-control-sets-count-right * $ft-control-scale-a;
     line-height: 3.8rem;
   }
+
+  .ft-control-reset {
+    bottom: $ft-control-reset-bottom;
+    right: $ft-control-reset-right * 1.25;
+  }
+
 }
