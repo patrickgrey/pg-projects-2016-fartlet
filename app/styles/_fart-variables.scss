@@ -10,9 +10,13 @@ $slate-grey: #26292C;
  * CONTROL BUTTON COLOURS
  */
 
-$control-start: #8bc34a;
+$ft-control-start: #8bc34a;
 
-$control-adjust-length: #085390;
+$ft-control-adjust-length: #085390;
+
+$ft-control-sets: #ea952f;
+
+$ft-control-reset: #e83131;
 
 
 
@@ -20,12 +24,26 @@ $control-adjust-length: #085390;
  * CONTROL BUTTON SIZE & POSITION
  */
 
-$ft-controls-default-size: 45px;
+$ft-control-default-size: 45px;
 
-$ft-controls-start-size: 75px;
+$ft-control-start-size: 75px;
 
-$ft-controls-start-bottom: 7rem;
-$ft-controls-start-right: 6rem;
+$ft-control-start-bottom: 7rem;
+$ft-control-start-right: 6rem;
 
-$ft-controls-adjust-length-bottom: 9rem;
-$ft-controls-adjust-length-right: 8.8rem;
+// $ft-control-adjust-length-bottom: 5.8rem;
+// $ft-control-adjust-length-right: 7rem;
+$ft-control-adjust-length-bottom: 9rem;
+$ft-control-adjust-length-right: 8.8rem;
+
+$ft-control-sets-plus-bottom: 11.5rem;
+$ft-control-sets-plus-right: 3rem;
+
+$ft-control-sets-minus-bottom: 7.1rem;
+$ft-control-sets-minus-right: 2rem;
+
+$ft-control-sets-count-bottom: 9.4rem;
+$ft-control-sets-count-right: 0.5rem;
+
+$ft-control-reset-bottom: 1.5rem;
+$ft-control-reset-right: 1.5rem;
