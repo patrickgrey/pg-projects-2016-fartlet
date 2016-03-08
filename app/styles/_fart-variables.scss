@@ -21,10 +21,12 @@ $ft-control-reset: #e83131;
 
 
 /**
- * CONTROL BUTTON SIZE & POSITION
+ * CONTROL BUTTON SIZE & POSITION PORTRAIT
  */
 
 $ft-control-scale-a: 1.3;
+
+$ft-control-default-border-size: 5px;
 
 $ft-control-default-size: 45px;
 
@@ -33,19 +35,52 @@ $ft-control-start-size: 75px;
 $ft-control-start-bottom: 7rem;
 $ft-control-start-right: 6rem;
 
-$ft-control-adjust-length-bottom: 5.8rem;
-$ft-control-adjust-length-right: 7rem;
-// $ft-control-adjust-length-bottom: 9rem;
-// $ft-control-adjust-length-right: 8.8rem;
+// $ft-control-adjust-length-bottom: 5.8rem;
+// $ft-control-adjust-length-right: 7rem;
+$ft-control-adjust-length-bottom: 9.5rem;
+$ft-control-adjust-length-right: 9rem;
 
 $ft-control-sets-plus-bottom: 11.5rem;
-$ft-control-sets-plus-right: 3rem;
+$ft-control-sets-plus-right: 2.8rem;
 
-$ft-control-sets-minus-bottom: 7.1rem;
-$ft-control-sets-minus-right: 2rem;
+$ft-control-sets-icon-top: floor(($ft-control-default-size / 2) - ($ft-control-default-border-size) - ($ft-control-default-size / 20));
+$ft-control-sets-icon-left: floor(($ft-control-default-size / 2) - ($ft-control-default-border-size) - ($ft-control-default-size / 6));
+
+$ft-control-sets-icon-width: floor($ft-control-default-size / 2.8);
+$ft-control-sets-icon-height: floor($ft-control-default-size / 8);
+
+$ft-control-sets-minus-bottom: 7.8rem;
+$ft-control-sets-minus-right: 1.5rem;
 
 $ft-control-sets-count-bottom: 9.4rem;
 $ft-control-sets-count-right: 0.5rem;
 
 $ft-control-reset-bottom: 1rem;
 $ft-control-reset-right: 9.5rem;
+
+
+
+
+/**
+ * CONTROL BUTTON SIZE & POSITION LANDSCAPE
+ */
+
+$ft-control-start-landscape-bottom: 4rem;
+$ft-control-start-landscape-right: 2.5rem;
+
+$ft-control-adjust-length-landscape-bottom: $ft-control-start-landscape-bottom + 3.2rem;
+$ft-control-adjust-length-landscape-right: $ft-control-start-landscape-right + 3.2rem;
+// $ft-control-adjust-length-landscape-bottom: $ft-control-start-landscape-bottom - 1.5rem;
+// $ft-control-adjust-length-landscape-right: $ft-control-start-landscape-right + 1.2rem;
+
+$ft-control-adjust-length-count-landscape-bottom: $ft-control-start-landscape-bottom - 5.3rem;
+$ft-control-adjust-length-count-landscape-right: $ft-control-start-landscape-right + 1.1rem;
+
+$ft-control-sets-plus-landscape-bottom: 5.5rem;
+$ft-control-sets-plus-landscape-left: 6rem;
+
+$ft-control-sets-minus-landscape-bottom: 1rem;
+$ft-control-sets-minus-landscape-left: 6rem;
+
+$ft-control-sets-count-landscape-bottom: 3.4rem;
+$ft-control-sets-count-landscape-left: 9.5rem;

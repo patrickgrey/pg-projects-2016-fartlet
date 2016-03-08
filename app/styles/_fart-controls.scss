@@ -12,15 +12,15 @@
    height: $ft-control-default-size;
    border-radius: 50%;
    background: $slate-grey;
-   border: 5px solid white;
+   border: $ft-control-default-border-size solid white;
  }
 
  .ft-control-info {
    position: absolute;
+   pointer-events: none;
    -webkit-user-select: none; /* Chrome/Safari */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+ */
-
   /* Rules below not implemented in browsers yet */
   -o-user-select: none;
   user-select: none;
@@ -34,19 +34,43 @@
   background: $ft-control-start;
 }
 
+.ft-control-start-paused::before {
+  content: ' ';
+  position: absolute;
+  top: ($ft-control-start-size/2) - ($ft-control-start-size/6) - $ft-control-default-border-size;
+  left: ($ft-control-start-size/2) - ($ft-control-start-size/12) - $ft-control-default-border-size;
+  width: 0;
+	height: 0;
+	border-top: ($ft-control-start-size/6) solid transparent;
+	border-left: ($ft-control-start-size/3.5) solid white;
+	border-bottom: ($ft-control-start-size/6) solid transparent;
+}
+
 .ft-control-adjust-length-count {
-  width: 3rem;
+  // width: 3rem;
   text-align: center;
-  bottom: $ft-control-start-bottom - 5.5rem;
+  bottom: $ft-control-start-bottom - 4.1rem;
   right: $ft-control-start-right + 0.95rem;
   font-size: 2rem;
+  color: lighten($ft-control-start, 10%);
 }
 
 .ft-control-adjust-length {
   bottom: $ft-control-adjust-length-bottom;
   right: $ft-control-adjust-length-right;
-  opacity: 0.5;
-  background: $ft-control-adjust-length
+  // opacity: 0.5;
+  background: $ft-control-adjust-length;
+}
+
+.ft-control-adjust-length::before {
+  content: ' ';
+  position: absolute;
+  top: ($ft-control-default-size / 2) - $ft-control-default-border-size - ($ft-control-default-size / 9);
+  left: ($ft-control-default-size / 2) - $ft-control-default-border-size - ($ft-control-default-size / 9);
+  background: white;
+  width: $ft-control-default-size / 4.5;
+  height: $ft-control-default-size / 4.5;
+  border-radius: 50%;
 }
 
 .ft-control-sets {
@@ -58,10 +82,45 @@
   right: $ft-control-sets-plus-right;
 }
 
+.ft-control-sets-plus:before, .ft-control-sets-plus:after {
+  content: "";
+  position: absolute;
+  background: white;
+}
+
+.ft-control-sets-plus:before {
+  left: 25%;
+  width: 15%;
+  margin-left: 18%;
+  margin-top: -24%;
+  height: 50%;
+}
+
+.ft-control-sets-plus:after {
+  top: 25%;
+  height: 17%;
+  margin-top:  18%;
+  margin-left:  -24%;
+  width: 50%;
+}
+
+
 .ft-control-sets-minus {
   bottom: $ft-control-sets-minus-bottom;
   right: $ft-control-sets-minus-right;
 }
+
+.ft-control-sets-minus:before {
+  content: ' ';
+  position: absolute;
+  background: white;
+  top: 25%;
+  height: 15%;
+  margin-top:  18%;
+  margin-left:  -24%;
+  width: 50%;
+}
+
 
 .ft-control-sets-count {
   width: $ft-control-default-size;
@@ -71,17 +130,36 @@
   font-size: 1.4rem;
   bottom: $ft-control-sets-count-bottom;
   right: $ft-control-sets-count-right;
-  background: #666;
+  background: #555;
   border-radius: 50%;
-  border: 5px solid #666;
+  border: 5px solid #555;
   text-align: center;
   line-height: 2.5rem;
+  color: lighten($ft-control-sets, 10%);
 }
 
 .ft-control-reset {
   background: $ft-control-reset;
   bottom: $ft-control-reset-bottom;
   right: $ft-control-reset-right;
+}
+
+.ft-control-reset::before, .ft-control-reset::after {
+  content: ' ';
+  position: absolute;
+  top: ($ft-control-start-size/2) - ($ft-control-start-size/3.5) - $ft-control-default-border-size;
+  left: ($ft-control-start-size/2) - ($ft-control-start-size/2.8) - $ft-control-default-border-size;
+  width: 0;
+	height: 0;
+	border-top: ($ft-control-start-size/12) solid transparent;
+	border-right: ($ft-control-start-size/7) solid white;
+	border-bottom: ($ft-control-start-size/12) solid transparent;
+}
+
+
+.ft-control-reset::after {
+  top: ($ft-control-start-size/2) - ($ft-control-start-size/3.5) - $ft-control-default-border-size;
+  left: ($ft-control-start-size/2) - ($ft-control-start-size/4.4) - $ft-control-default-border-size;
 }
 
 @media (min-width: 250px) and (orientation: portrait) {
@@ -93,21 +171,35 @@
   }
 
   .ft-control-start {
-    bottom: $ft-control-start-bottom * $ft-control-scale-a;
+    bottom: $ft-control-start-bottom * ($ft-control-scale-a - 0.1);
     right: $ft-control-start-right * $ft-control-scale-a;
     width: $ft-control-start-size * $ft-control-scale-a;
     height: $ft-control-start-size * $ft-control-scale-a;
   }
 
-  .ft-control-adjust-length {
-    bottom: $ft-control-adjust-length-bottom * $ft-control-scale-a;
-    right: $ft-control-adjust-length-right * $ft-control-scale-a;
+  .ft-control-start-paused::before {
+    top: (($ft-control-start-size/2) - ($ft-control-default-border-size*2));
+    left: (($ft-control-start-size/2) - ($ft-control-default-border-size*0.5));
+  	border-top: (($ft-control-start-size/6) * $ft-control-scale-a) solid transparent;
+  	border-left: (($ft-control-start-size/3.5) * $ft-control-scale-a) solid white;
+  	border-bottom: (($ft-control-start-size/6) * $ft-control-scale-a) solid transparent;
+  }
 
+  .ft-control-adjust-length {
+    bottom: $ft-control-adjust-length-bottom * ($ft-control-scale-a - 0.05);
+    right: $ft-control-adjust-length-right * ($ft-control-scale-a - 0.03);
+  }
+
+  .ft-control-adjust-length::before {
+    top: (($ft-control-default-size / 2) * $ft-control-scale-a) - $ft-control-default-border-size - ($ft-control-default-size / 8);
+    left: (($ft-control-default-size / 2) * $ft-control-scale-a) - $ft-control-default-border-size - ($ft-control-default-size / 8);
+    width: ($ft-control-default-size / 4.5) * $ft-control-scale-a;
+    height: ($ft-control-default-size / 4.5) * $ft-control-scale-a;
   }
 
   .ft-control-adjust-length-count {
-    bottom: $ft-control-start-bottom - 4.5rem;
-    right: $ft-control-start-right + 3.5rem;
+    bottom: $ft-control-start-bottom - 3.9rem;
+    right: $ft-control-start-right + 2.8rem;
     font-size: 2.5rem;
   }
 
@@ -116,21 +208,136 @@
     right: $ft-control-sets-plus-right * $ft-control-scale-a;
   }
 
+  // Setting size and percent width required as doesn't automatically carry through on screen resize!!??
+  //
+  .ft-control-sets-plus:before {
+    left: 25%;
+    margin-left: 18%;
+    margin-top: -24%;
+    height: 48%;
+  }
+
+  .ft-control-sets-plus:after {
+    top: 25%;
+    height: 15%;
+    margin-top:  18%;
+    margin-left:  -24%;
+    width: 48%;
+  }
+
+
+
   .ft-control-sets-minus {
-    bottom: $ft-control-sets-minus-bottom * $ft-control-scale-a;
+    bottom: $ft-control-sets-minus-bottom * ($ft-control-scale-a - 0.05);
     right: $ft-control-sets-minus-right * $ft-control-scale-a;
+  }
+
+  .ft-control-sets-minus:before {
+    top: 25%;
+    margin-top:  18%;
+    margin-left:  -24%;
+    width: 48%;
   }
 
   .ft-control-sets-count {
     font-size: 1.8rem;
     bottom: $ft-control-sets-count-bottom * $ft-control-scale-a;
     right: $ft-control-sets-count-right * $ft-control-scale-a;
-    line-height: 3.8rem;
+    line-height: 3rem;
   }
 
   .ft-control-reset {
-    bottom: $ft-control-reset-bottom;
     right: $ft-control-reset-right * 1.25;
+  }
+
+  .ft-control-reset::before, .ft-control-reset::after {
+    top: ($ft-control-start-size/2) - ($ft-control-start-size/4.5) - $ft-control-default-border-size;
+    left: ($ft-control-start-size/2) - ($ft-control-start-size/3) - $ft-control-default-border-size;
+  	border-top: ($ft-control-start-size/8) solid transparent;
+  	border-right: ($ft-control-start-size/5) solid white;
+  	border-bottom: ($ft-control-start-size/8) solid transparent;
+  }
+
+  .ft-control-reset::after {
+    top: ($ft-control-start-size/2) - ($ft-control-start-size/4.5) - $ft-control-default-border-size;
+    left: ($ft-control-start-size/2) - ($ft-control-start-size/7) - $ft-control-default-border-size;
+  }
+
+}
+
+@media (orientation: landscape) {
+
+  .ft-control-adjust-length, .ft-control-sets-plus, .ft-control-sets-minus,
+  .ft-control-reset {
+    width: $ft-control-default-size * $ft-control-scale-a;
+    height: $ft-control-default-size * $ft-control-scale-a;
+  }
+
+  .ft-control-start {
+    bottom: $ft-control-start-landscape-bottom;
+    right: $ft-control-start-landscape-right;
+    width: $ft-control-start-size * $ft-control-scale-a;
+    height: $ft-control-start-size * $ft-control-scale-a;
+  }
+
+  .ft-control-start-paused::before {
+    top: (($ft-control-start-size/2) - ($ft-control-default-border-size*2));
+    left: (($ft-control-start-size/2) - ($ft-control-default-border-size*0.5));
+  	border-top: (($ft-control-start-size/6) * $ft-control-scale-a) solid transparent;
+  	border-left: (($ft-control-start-size/3.5) * $ft-control-scale-a) solid white;
+  	border-bottom: (($ft-control-start-size/6) * $ft-control-scale-a) solid transparent;
+  }
+
+  .ft-control-adjust-length {
+    bottom: $ft-control-adjust-length-landscape-bottom * 1.05;
+    right: $ft-control-adjust-length-landscape-right * 1.05;
+  }
+
+  .ft-control-adjust-length::before {
+    top: (($ft-control-default-size / 2) * $ft-control-scale-a) - $ft-control-default-border-size - ($ft-control-default-size / 8);
+    left: (($ft-control-default-size / 2) * $ft-control-scale-a) - $ft-control-default-border-size - ($ft-control-default-size / 8);
+    width: ($ft-control-default-size / 4.5) * $ft-control-scale-a;
+    height: ($ft-control-default-size / 4.5) * $ft-control-scale-a;
+  }
+
+  .ft-control-adjust-length-count {
+    bottom: $ft-control-adjust-length-count-landscape-bottom;
+    right: $ft-control-adjust-length-count-landscape-right;
+    font-size: 2.5rem;
+  }
+
+  .ft-control-sets-plus {
+    bottom: $ft-control-sets-plus-landscape-bottom;
+    left: $ft-control-sets-plus-landscape-left;
+  }
+
+  .ft-control-sets-minus {
+    bottom: $ft-control-sets-minus-landscape-bottom;
+    left: $ft-control-sets-minus-landscape-left;
+  }
+
+  .ft-control-sets-count {
+    font-size: 1.5rem;
+    bottom: $ft-control-sets-count-landscape-bottom;
+    left: $ft-control-sets-count-landscape-left;
+    line-height: 2.9rem;
+  }
+
+  .ft-control-reset {
+    left: 1rem;
+  }
+
+  .ft-control-reset::before, .ft-control-reset::after {
+    top: ($ft-control-start-size/2) - ($ft-control-start-size/4.5) - $ft-control-default-border-size;
+    left: ($ft-control-start-size/2) - ($ft-control-start-size/3) - $ft-control-default-border-size;
+  	border-top: ($ft-control-start-size/8) solid transparent;
+  	border-right: ($ft-control-start-size/5) solid white;
+  	border-bottom: ($ft-control-start-size/8) solid transparent;
+  }
+
+  .ft-control-reset::after {
+    top: ($ft-control-start-size/2) - ($ft-control-start-size/4.5) - $ft-control-default-border-size;
+    left: ($ft-control-start-size/2) - ($ft-control-start-size/7) - $ft-control-default-border-size;
   }
 
 }
