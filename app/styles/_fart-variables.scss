@@ -10,13 +10,13 @@ $slate-grey: #26292C;
  * CONTROL BUTTON COLOURS
  */
 
-$ft-control-start: #8bc34a;
+$ft-control-colour-start: #8bc34a;
 
-$ft-control-adjust-length: #085390;
+$ft-control-colour-adjust-length: #085390;
 
-$ft-control-sets: #ea952f;
+$ft-control-colour-sets: #ea952f;
 
-$ft-control-reset: #e83131;
+$ft-control-colour-reset: #e83131;
 
 
 
@@ -52,7 +52,7 @@ $ft-control-sets-icon-height: floor($ft-control-default-size / 8);
 $ft-control-sets-minus-bottom: 7.8rem;
 $ft-control-sets-minus-right: 1.5rem;
 
-$ft-control-sets-count-bottom: 9.4rem;
+$ft-control-sets-count-bottom: 10.1rem;
 $ft-control-sets-count-right: 0.5rem;
 
 $ft-control-reset-bottom: 1rem;
@@ -82,5 +82,5 @@ $ft-control-sets-plus-landscape-left: 6rem;
 $ft-control-sets-minus-landscape-bottom: 1rem;
 $ft-control-sets-minus-landscape-left: 6rem;
 
-$ft-control-sets-count-landscape-bottom: 3.4rem;
-$ft-control-sets-count-landscape-left: 9.5rem;
+$ft-control-sets-count-landscape-bottom: 3.8rem;
+$ft-control-sets-count-landscape-left: 9rem;

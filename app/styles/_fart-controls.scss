@@ -1,8 +1,13 @@
 /**
+ * TODO:
+ *   None
+ */
+
+/**
  * CONTROLS
  */
 
-/* Default styles */
+/* Default button styles */
  input[type="submit"],
  input[type="reset"],
  input[type="button"],
@@ -15,25 +20,28 @@
    border: $ft-control-default-border-size solid white;
  }
 
- .ft-control-info {
-   position: absolute;
-   pointer-events: none;
-   -webkit-user-select: none; /* Chrome/Safari */
+// Default info text styles to stop text being selected or blocking buttons.
+.ft-control-info {
+  position: absolute;
+  pointer-events: none;
+  -webkit-user-select: none; /* Chrome/Safari */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+ */
   /* Rules below not implemented in browsers yet */
   -o-user-select: none;
   user-select: none;
- }
+}
 
+// Start button
 .ft-control-start {
   bottom: $ft-control-start-bottom;
   right: $ft-control-start-right;
   width: $ft-control-start-size;
   height: $ft-control-start-size;
-  background: $ft-control-start;
+  background: $ft-control-colour-start;
 }
 
+// Start button paused icon
 .ft-control-start-paused::before {
   content: ' ';
   position: absolute;
@@ -46,22 +54,26 @@
 	border-bottom: ($ft-control-start-size/6) solid transparent;
 }
 
+// Text showing fartlet length
 .ft-control-adjust-length-count {
-  // width: 3rem;
+  width: $ft-control-start-size;
   text-align: center;
   bottom: $ft-control-start-bottom - 4.1rem;
-  right: $ft-control-start-right + 0.95rem;
+  right: $ft-control-start-right;
   font-size: 2rem;
-  color: lighten($ft-control-start, 10%);
+  color: lighten($ft-control-colour-start, 10%);
 }
 
+// Drag button to set fartlet length
+// Opacity set to help see where sits on line of play button
 .ft-control-adjust-length {
   bottom: $ft-control-adjust-length-bottom;
   right: $ft-control-adjust-length-right;
   // opacity: 0.5;
-  background: $ft-control-adjust-length;
+  background: $ft-control-colour-adjust-length;
 }
 
+// Adjust fartlet length button icon
 .ft-control-adjust-length::before {
   content: ' ';
   position: absolute;
@@ -73,8 +85,9 @@
   border-radius: 50%;
 }
 
+
 .ft-control-sets {
-  background: $ft-control-sets;
+  background: $ft-control-colour-sets;
 }
 
 .ft-control-sets-plus {
@@ -82,12 +95,14 @@
   right: $ft-control-sets-plus-right;
 }
 
+// Icon for sets plus button
 .ft-control-sets-plus:before, .ft-control-sets-plus:after {
   content: "";
   position: absolute;
   background: white;
 }
 
+// Icon for sets plus button
 .ft-control-sets-plus:before {
   left: 25%;
   width: 15%;
@@ -96,6 +111,7 @@
   height: 50%;
 }
 
+// Icon for sets plus button
 .ft-control-sets-plus:after {
   top: 25%;
   height: 17%;
@@ -104,12 +120,12 @@
   width: 50%;
 }
 
-
 .ft-control-sets-minus {
   bottom: $ft-control-sets-minus-bottom;
   right: $ft-control-sets-minus-right;
 }
 
+// Icon for sets minus button
 .ft-control-sets-minus:before {
   content: ' ';
   position: absolute;
@@ -121,7 +137,7 @@
   width: 50%;
 }
 
-
+// Sets text
 .ft-control-sets-count {
   width: $ft-control-default-size;
   height: $ft-control-default-size;
@@ -130,20 +146,21 @@
   font-size: 1.4rem;
   bottom: $ft-control-sets-count-bottom;
   right: $ft-control-sets-count-right;
-  background: #555;
+  // background: #555;
   border-radius: 50%;
-  border: 5px solid #555;
+  // border: 5px solid #555;
   text-align: center;
   line-height: 2.5rem;
-  color: lighten($ft-control-sets, 10%);
+  color: lighten($ft-control-colour-sets, 10%);
 }
 
 .ft-control-reset {
-  background: $ft-control-reset;
+  background: $ft-control-colour-reset;
   bottom: $ft-control-reset-bottom;
   right: $ft-control-reset-right;
 }
 
+// Icon for reset button
 .ft-control-reset::before, .ft-control-reset::after {
   content: ' ';
   position: absolute;
@@ -156,11 +173,25 @@
 	border-bottom: ($ft-control-start-size/12) solid transparent;
 }
 
-
+// Icon for reset button
 .ft-control-reset::after {
   top: ($ft-control-start-size/2) - ($ft-control-start-size/3.5) - $ft-control-default-border-size;
   left: ($ft-control-start-size/2) - ($ft-control-start-size/4.4) - $ft-control-default-border-size;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media (min-width: 250px) and (orientation: portrait) {
 
@@ -199,7 +230,7 @@
 
   .ft-control-adjust-length-count {
     bottom: $ft-control-start-bottom - 3.9rem;
-    right: $ft-control-start-right + 2.8rem;
+    right: $ft-control-start-right + 2.5rem;
     font-size: 2.5rem;
   }
 
@@ -241,7 +272,7 @@
 
   .ft-control-sets-count {
     font-size: 1.8rem;
-    bottom: $ft-control-sets-count-bottom * $ft-control-scale-a;
+    bottom: ($ft-control-sets-count-bottom - 0.5) * $ft-control-scale-a;
     right: $ft-control-sets-count-right * $ft-control-scale-a;
     line-height: 3rem;
   }
@@ -264,6 +295,21 @@
   }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media (orientation: landscape) {
 
@@ -302,7 +348,7 @@
 
   .ft-control-adjust-length-count {
     bottom: $ft-control-adjust-length-count-landscape-bottom;
-    right: $ft-control-adjust-length-count-landscape-right;
+    right: $ft-control-adjust-length-count-landscape-right - 0.4rem;
     font-size: 2.5rem;
   }
 
