@@ -30,10 +30,14 @@
     <h1 class="ft-title">Fartlets!</h1>
     <!-- Button defaults to type="submit" so using type="button" to make sure no side effects. -->
     <div class="ft-svg-controls">
-      <button type="button" class="ft-control ft-control-start ft-control-start-paused ft-control--effect-radomir" aria-label="Start fartleks">
+      <button type="button" class="ft-control ft-control-start ft-control--effect-radomir ft-control-start-paused" aria-label="Start fartleks">
         <svg viewBox="0 0 120 120" version="1.1"
           xmlns="http://www.w3.org/2000/svg" class="ft-control-icon">
-          <circle cx="60" cy="60" r="50"/>
+          <polygon id="ft-control-icon-play" points="10,0 120,60 10,120"/>
+          <g id="ft-control-icon-pause" class="ft-control-hide">
+            <rect x="0" y="0" width="40" height="120"/>
+            <rect x="80" y="0" width="40" height="120"/>
+          </g>
         </svg>
         <span class="ft-control-text">Start or pause</span>
       </button>
@@ -46,13 +50,14 @@
         <span class="ft-control-text">Adjust fartlek length in seconds</span>
       </button>
       
-      <p class="ft-control-info ft-control-adjust-length-count">999</p>
-      <p class="ft-control-info ft-control-sets-count">99</p>
+      <p class="ft-control-info ft-control-adjust-length-count">20</p>
+      <p class="ft-control-info ft-control-sets-count">10</p>
       
       <button type="button" class="ft-control ft-control-sets ft-control-sets-plus ft-control--effect-radomir" aria-label="Increase the number of fartlek sets.">
         <svg viewBox="0 0 120 120" version="1.1"
           xmlns="http://www.w3.org/2000/svg" class="ft-control-icon">
-          <circle cx="60" cy="60" r="50"/>
+          <rect x="0" y="40" width="120" height="40"/>
+          <rect x="40" y="0" width="40" height="120"/>
         </svg>
         <span class="ft-control-text">Increase the number of fartlek sets</span>
       </button>
@@ -60,7 +65,7 @@
       <button type="button" class="ft-control ft-control-sets ft-control-sets-minus ft-control--effect-radomir" aria-label="Decrease the number of fartlek sets.">
         <svg viewBox="0 0 120 120" version="1.1"
           xmlns="http://www.w3.org/2000/svg" class="ft-control-icon">
-          <circle cx="60" cy="60" r="50"/>
+          <rect x="0" y="40" width="120" height="40"/>
         </svg>
         <span class="ft-control-text">Decrease the number of fartlek sets</span>
       </button>
@@ -68,7 +73,12 @@
       <button type="button" class="ft-control ft-control-reset ft-control--effect-radomir" aria-label="Reset countdown and sets.">
         <svg viewBox="0 0 120 120" version="1.1"
           xmlns="http://www.w3.org/2000/svg" class="ft-control-icon">
-          <circle cx="60" cy="60" r="50"/>
+          <style type="text/css">
+          	.st0{fill:none;stroke-width:13;stroke-linecap:round;stroke-miterlimit:10;}
+          </style>
+          <path class="st0" d="M99.8,67.8c-2.4,19.9-19.3,35.3-39.9,35.3c-22.2,0-40.1-18-40.1-40.1s18-40.1,40.1-40.1 c9.3,0,17.9,3.2,24.7,8.5"/>
+          <line class="st0" x1="84.7" y1="31.4" x2="69.6" y2="38.1"/>
+          <line class="st0" x1="84.9" y1="31.2" x2="79.2" y2="14.8"/>
         </svg>
         <span class="ft-control-text">Reset countdown and sets</span>
       </button>
