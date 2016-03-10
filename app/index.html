@@ -28,15 +28,51 @@
   <body>
 
     <h1 class="ft-title">Fartlets!</h1>
-
+    <!-- Button defaults to type="submit" so using type="button" to make sure no side effects. -->
     <div class="ft-svg-controls">
-      <button class="ft-control-start ft-control-start-paused" aria-label="Start fartleks"></button>
-      <button class="ft-control-adjust-length" role="slider" aria-label="Adjust fartlek length in seconds."></button>
+      <button type="button" class="ft-control ft-control-start ft-control-start-paused ft-control--effect-radomir" aria-label="Start fartleks">
+        <svg viewBox="0 0 120 120" version="1.1"
+          xmlns="http://www.w3.org/2000/svg" class="ft-control-icon">
+          <circle cx="60" cy="60" r="50"/>
+        </svg>
+        <span class="ft-control-text">Start or pause</span>
+      </button>
+      
+      <button type="button" class="ft-control ft-control-adjust-length ft-control--effect-radomir" role="slider" aria-label="Adjust fartlek length in seconds.">
+        <svg viewBox="0 0 120 120" version="1.1"
+          xmlns="http://www.w3.org/2000/svg" class="ft-control-icon">
+          <circle cx="60" cy="60" r="50"/>
+        </svg>
+        <span class="ft-control-text">Adjust fartlek length in seconds</span>
+      </button>
+      
       <p class="ft-control-info ft-control-adjust-length-count">999</p>
       <p class="ft-control-info ft-control-sets-count">99</p>
-      <button class="ft-control-sets ft-control-sets-plus" aria-label="Increase the number of fartlek sets."></button>
-      <button class="ft-control-sets ft-control-sets-minus" aria-label="Decrease the number of fartlek sets."></button>
-      <button class="ft-control-reset" aria-label="Reset countdown and sets."></button>
+      
+      <button type="button" class="ft-control ft-control-sets ft-control-sets-plus ft-control--effect-radomir" aria-label="Increase the number of fartlek sets.">
+        <svg viewBox="0 0 120 120" version="1.1"
+          xmlns="http://www.w3.org/2000/svg" class="ft-control-icon">
+          <circle cx="60" cy="60" r="50"/>
+        </svg>
+        <span class="ft-control-text">Increase the number of fartlek sets</span>
+      </button>
+      
+      <button type="button" class="ft-control ft-control-sets ft-control-sets-minus ft-control--effect-radomir" aria-label="Decrease the number of fartlek sets.">
+        <svg viewBox="0 0 120 120" version="1.1"
+          xmlns="http://www.w3.org/2000/svg" class="ft-control-icon">
+          <circle cx="60" cy="60" r="50"/>
+        </svg>
+        <span class="ft-control-text">Decrease the number of fartlek sets</span>
+      </button>
+      
+      <button type="button" class="ft-control ft-control-reset ft-control--effect-radomir" aria-label="Reset countdown and sets.">
+        <svg viewBox="0 0 120 120" version="1.1"
+          xmlns="http://www.w3.org/2000/svg" class="ft-control-icon">
+          <circle cx="60" cy="60" r="50"/>
+        </svg>
+        <span class="ft-control-text">Reset countdown and sets</span>
+      </button>
+      
     </div>
 
 
@@ -80,6 +116,7 @@
     <script src="/bower_components/gsap/src/minified/plugins/AttrPlugin.min.js"></script>
     <script src="/bower_components/gsap/src/minified/plugins/ThrowPropsPlugin.min.js"></script>
     <script src="/bower_components/gsap/src/minified/easing/EasePack.min.js"></script>
+    <script src="/bower_components/classie/classie.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

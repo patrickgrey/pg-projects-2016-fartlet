@@ -8,17 +8,120 @@
  */
 
 /* Default button styles */
- input[type="submit"],
- input[type="reset"],
- input[type="button"],
- button {
-   position: absolute;
-   width: $ft-control-default-size;
-   height: $ft-control-default-size;
-   border-radius: 50%;
-   background: $slate-grey;
-   border: $ft-control-default-border-size solid white;
- }
+.ft-control  {
+ position: absolute;
+ width: $ft-control-default-size;
+ height: $ft-control-default-size;
+ border-radius: 50%;
+ background: $slate-grey;
+ border: $ft-control-default-border-size solid white;
+ // border: none;
+ background: none;
+ outline: none;
+//  box-shadow: 0px 0px 0px 6px yellow;
+}
+  
+.ft-control:focus {
+  border: $ft-control-default-border-size solid yellow;
+}
+
+.ft-control::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: ($ft-control-default-size * -1) 0 0 ($ft-control-default-size * -1);
+  width: $ft-control-default-size * 2;
+  height: $ft-control-default-size * 2;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ft-control-start.ft-control::after {
+  margin: ($ft-control-start-size * -1) 0 0 ($ft-control-start-size * -1);
+  width: $ft-control-start-size * 2;
+  height: $ft-control-start-size * 2;
+}
+
+.ft-control-text {
+	opacity: 0;
+	pointer-events: none;
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding:0 !important;
+  border:0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
+.ft-control-icon {
+  fill: white;
+  width: 10%;
+  height: 10%;
+  pointer-events: none;
+}
+
+// http://tympanus.net/codrops/2015/02/11/subtle-click-feedback-effects/
+/* Radomir */
+.ft-control--effect-radomir::after {
+	box-shadow: inset 0 0 0 $ft-control-default-size rgba(255,255,0,0);
+}
+
+.ft-control-start.ft-control--effect-radomir::after {
+	box-shadow: inset 0 0 0 $ft-control-start-size rgba(255,255,0,0);
+}
+
+.ft-control--effect-radomir.ft-control--click::after {
+	-webkit-animation: anim-effect-radomir 0.5s ease-out forwards;
+	animation: anim-effect-radomir 0.5s ease-out forwards;
+}
+
+@-webkit-keyframes anim-effect-radomir {
+	0% {
+		opacity: 1;
+		-webkit-transform: scale3d(0.4, 0.4, 1);
+		transform: scale3d(0.4, 0.4, 1);
+	}
+	80% {
+		box-shadow: inset 0 0 0 2px rgba(255,255,0,0.8);
+		opacity: 0.1;
+	}
+	100% {
+		box-shadow: inset 0 0 0 2px rgba(255,255,0,0.8);
+		opacity: 0;
+		-webkit-transform: scale3d(1.1, 1.1, 1);
+		transform: scale3d(1.1, 1.1, 1);
+	}
+}
+
+@keyframes anim-effect-radomir {
+	0% {
+		opacity: 1;
+		-webkit-transform: scale3d(0.4, 0.4, 1);
+		transform: scale3d(0.4, 0.4, 1);
+	}
+	80% {
+		box-shadow: inset 0 0 0 2px rgba(255,255,0,0.8);
+		opacity: 0.1;
+	}
+	100% {
+		box-shadow: inset 0 0 0 2px rgba(255,255,0,0.8);
+		opacity: 0;
+		-webkit-transform: scale3d(1.1, 1.1, 1);
+		transform: scale3d(1.1, 1.1, 1);
+	}
+}
+
+
+
+
+
+
+
+
 
 // Default info text styles to stop text being selected or blocking buttons.
 .ft-control-info {
@@ -42,17 +145,17 @@
 }
 
 // Start button paused icon
-.ft-control-start-paused::before {
-  content: ' ';
-  position: absolute;
-  top: ($ft-control-start-size/2) - ($ft-control-start-size/6) - $ft-control-default-border-size;
-  left: ($ft-control-start-size/2) - ($ft-control-start-size/12) - $ft-control-default-border-size;
-  width: 0;
-	height: 0;
-	border-top: ($ft-control-start-size/6) solid transparent;
-	border-left: ($ft-control-start-size/3.5) solid white;
-	border-bottom: ($ft-control-start-size/6) solid transparent;
-}
+// .ft-control-start-paused::before {
+//   content: ' ';
+//   position: absolute;
+//   top: ($ft-control-start-size/2) - ($ft-control-start-size/6) - $ft-control-default-border-size;
+//   left: ($ft-control-start-size/2) - ($ft-control-start-size/12) - $ft-control-default-border-size;
+//   width: 0;
+// 	height: 0;
+// 	border-top: ($ft-control-start-size/6) solid transparent;
+// 	border-left: ($ft-control-start-size/3.5) solid white;
+// 	border-bottom: ($ft-control-start-size/6) solid transparent;
+// }
 
 // Text showing fartlet length
 .ft-control-adjust-length-count {
@@ -74,16 +177,16 @@
 }
 
 // Adjust fartlet length button icon
-.ft-control-adjust-length::before {
-  content: ' ';
-  position: absolute;
-  top: ($ft-control-default-size / 2) - $ft-control-default-border-size - ($ft-control-default-size / 9);
-  left: ($ft-control-default-size / 2) - $ft-control-default-border-size - ($ft-control-default-size / 9);
-  background: white;
-  width: $ft-control-default-size / 4.5;
-  height: $ft-control-default-size / 4.5;
-  border-radius: 50%;
-}
+// .ft-control-adjust-length::before {
+//   content: ' ';
+//   position: absolute;
+//   top: ($ft-control-default-size / 2) - $ft-control-default-border-size - ($ft-control-default-size / 9);
+//   left: ($ft-control-default-size / 2) - $ft-control-default-border-size - ($ft-control-default-size / 9);
+//   background: white;
+//   width: $ft-control-default-size / 4.5;
+//   height: $ft-control-default-size / 4.5;
+//   border-radius: 50%;
+// }
 
 
 .ft-control-sets {
@@ -96,29 +199,29 @@
 }
 
 // Icon for sets plus button
-.ft-control-sets-plus:before, .ft-control-sets-plus:after {
-  content: "";
-  position: absolute;
-  background: white;
-}
+// .ft-control-sets-plus:before, .ft-control-sets-plus:after {
+//   content: "";
+//   position: absolute;
+//   background: white;
+// }
+//
+// // Icon for sets plus button
+// .ft-control-sets-plus:before {
+//   left: 25%;
+//   width: 15%;
+//   margin-left: 18%;
+//   margin-top: -24%;
+//   height: 50%;
+// }
 
 // Icon for sets plus button
-.ft-control-sets-plus:before {
-  left: 25%;
-  width: 15%;
-  margin-left: 18%;
-  margin-top: -24%;
-  height: 50%;
-}
-
-// Icon for sets plus button
-.ft-control-sets-plus:after {
-  top: 25%;
-  height: 17%;
-  margin-top:  18%;
-  margin-left:  -24%;
-  width: 50%;
-}
+// .ft-control-sets-plus:after {
+//   top: 25%;
+//   height: 17%;
+//   margin-top:  18%;
+//   margin-left:  -24%;
+//   width: 50%;
+// }
 
 .ft-control-sets-minus {
   bottom: $ft-control-sets-minus-bottom;
@@ -126,16 +229,16 @@
 }
 
 // Icon for sets minus button
-.ft-control-sets-minus:before {
-  content: ' ';
-  position: absolute;
-  background: white;
-  top: 25%;
-  height: 15%;
-  margin-top:  18%;
-  margin-left:  -24%;
-  width: 50%;
-}
+// .ft-control-sets-minus:before {
+//   content: ' ';
+//   position: absolute;
+//   background: white;
+//   top: 25%;
+//   height: 15%;
+//   margin-top:  18%;
+//   margin-left:  -24%;
+//   width: 50%;
+// }
 
 // Sets text
 .ft-control-sets-count {
@@ -161,23 +264,23 @@
 }
 
 // Icon for reset button
-.ft-control-reset::before, .ft-control-reset::after {
-  content: ' ';
-  position: absolute;
-  top: ($ft-control-start-size/2) - ($ft-control-start-size/3.5) - $ft-control-default-border-size;
-  left: ($ft-control-start-size/2) - ($ft-control-start-size/2.8) - $ft-control-default-border-size;
-  width: 0;
-	height: 0;
-	border-top: ($ft-control-start-size/12) solid transparent;
-	border-right: ($ft-control-start-size/7) solid white;
-	border-bottom: ($ft-control-start-size/12) solid transparent;
-}
-
-// Icon for reset button
-.ft-control-reset::after {
-  top: ($ft-control-start-size/2) - ($ft-control-start-size/3.5) - $ft-control-default-border-size;
-  left: ($ft-control-start-size/2) - ($ft-control-start-size/4.4) - $ft-control-default-border-size;
-}
+// .ft-control-reset::before, .ft-control-reset::after {
+//   content: ' ';
+//   position: absolute;
+//   top: ($ft-control-start-size/2) - ($ft-control-start-size/3.5) - $ft-control-default-border-size;
+//   left: ($ft-control-start-size/2) - ($ft-control-start-size/2.8) - $ft-control-default-border-size;
+//   width: 0;
+// 	height: 0;
+// 	border-top: ($ft-control-start-size/12) solid transparent;
+// 	border-right: ($ft-control-start-size/7) solid white;
+// 	border-bottom: ($ft-control-start-size/12) solid transparent;
+// }
+//
+// // Icon for reset button
+// .ft-control-reset::after {
+//   top: ($ft-control-start-size/2) - ($ft-control-start-size/3.5) - $ft-control-default-border-size;
+//   left: ($ft-control-start-size/2) - ($ft-control-start-size/4.4) - $ft-control-default-border-size;
+// }
 
 
 
@@ -208,25 +311,25 @@
     height: $ft-control-start-size * $ft-control-scale-a;
   }
 
-  .ft-control-start-paused::before {
-    top: (($ft-control-start-size/2) - ($ft-control-default-border-size*2));
-    left: (($ft-control-start-size/2) - ($ft-control-default-border-size*0.5));
-  	border-top: (($ft-control-start-size/6) * $ft-control-scale-a) solid transparent;
-  	border-left: (($ft-control-start-size/3.5) * $ft-control-scale-a) solid white;
-  	border-bottom: (($ft-control-start-size/6) * $ft-control-scale-a) solid transparent;
-  }
+  // .ft-control-start-paused::before {
+  //   top: (($ft-control-start-size/2) - ($ft-control-default-border-size*2));
+  //   left: (($ft-control-start-size/2) - ($ft-control-default-border-size*0.5));
+  // 	border-top: (($ft-control-start-size/6) * $ft-control-scale-a) solid transparent;
+  // 	border-left: (($ft-control-start-size/3.5) * $ft-control-scale-a) solid white;
+  // 	border-bottom: (($ft-control-start-size/6) * $ft-control-scale-a) solid transparent;
+  // }
 
   .ft-control-adjust-length {
     bottom: $ft-control-adjust-length-bottom * ($ft-control-scale-a - 0.05);
     right: $ft-control-adjust-length-right * ($ft-control-scale-a - 0.03);
   }
 
-  .ft-control-adjust-length::before {
-    top: (($ft-control-default-size / 2) * $ft-control-scale-a) - $ft-control-default-border-size - ($ft-control-default-size / 8);
-    left: (($ft-control-default-size / 2) * $ft-control-scale-a) - $ft-control-default-border-size - ($ft-control-default-size / 8);
-    width: ($ft-control-default-size / 4.5) * $ft-control-scale-a;
-    height: ($ft-control-default-size / 4.5) * $ft-control-scale-a;
-  }
+  // .ft-control-adjust-length::before {
+  //   top: (($ft-control-default-size / 2) * $ft-control-scale-a) - $ft-control-default-border-size - ($ft-control-default-size / 8);
+  //   left: (($ft-control-default-size / 2) * $ft-control-scale-a) - $ft-control-default-border-size - ($ft-control-default-size / 8);
+  //   width: ($ft-control-default-size / 4.5) * $ft-control-scale-a;
+  //   height: ($ft-control-default-size / 4.5) * $ft-control-scale-a;
+  // }
 
   .ft-control-adjust-length-count {
     bottom: $ft-control-start-bottom - 3.9rem;
@@ -241,20 +344,20 @@
 
   // Setting size and percent width required as doesn't automatically carry through on screen resize!!??
   //
-  .ft-control-sets-plus:before {
-    left: 25%;
-    margin-left: 18%;
-    margin-top: -24%;
-    height: 48%;
-  }
-
-  .ft-control-sets-plus:after {
-    top: 25%;
-    height: 15%;
-    margin-top:  18%;
-    margin-left:  -24%;
-    width: 48%;
-  }
+  // .ft-control-sets-plus:before {
+  //   left: 25%;
+  //   margin-left: 18%;
+  //   margin-top: -24%;
+  //   height: 48%;
+  // }
+  //
+  // .ft-control-sets-plus:after {
+  //   top: 25%;
+  //   height: 15%;
+  //   margin-top:  18%;
+  //   margin-left:  -24%;
+  //   width: 48%;
+  // }
 
 
 
@@ -263,12 +366,12 @@
     right: $ft-control-sets-minus-right * $ft-control-scale-a;
   }
 
-  .ft-control-sets-minus:before {
-    top: 25%;
-    margin-top:  18%;
-    margin-left:  -24%;
-    width: 48%;
-  }
+  // .ft-control-sets-minus:before {
+  //   top: 25%;
+  //   margin-top:  18%;
+  //   margin-left:  -24%;
+  //   width: 48%;
+  // }
 
   .ft-control-sets-count {
     font-size: 1.8rem;
@@ -281,18 +384,18 @@
     right: $ft-control-reset-right * 1.25;
   }
 
-  .ft-control-reset::before, .ft-control-reset::after {
-    top: ($ft-control-start-size/2) - ($ft-control-start-size/4.5) - $ft-control-default-border-size;
-    left: ($ft-control-start-size/2) - ($ft-control-start-size/3) - $ft-control-default-border-size;
-  	border-top: ($ft-control-start-size/8) solid transparent;
-  	border-right: ($ft-control-start-size/5) solid white;
-  	border-bottom: ($ft-control-start-size/8) solid transparent;
-  }
-
-  .ft-control-reset::after {
-    top: ($ft-control-start-size/2) - ($ft-control-start-size/4.5) - $ft-control-default-border-size;
-    left: ($ft-control-start-size/2) - ($ft-control-start-size/7) - $ft-control-default-border-size;
-  }
+  // .ft-control-reset::before, .ft-control-reset::after {
+  //   top: ($ft-control-start-size/2) - ($ft-control-start-size/4.5) - $ft-control-default-border-size;
+  //   left: ($ft-control-start-size/2) - ($ft-control-start-size/3) - $ft-control-default-border-size;
+  // 	border-top: ($ft-control-start-size/8) solid transparent;
+  // 	border-right: ($ft-control-start-size/5) solid white;
+  // 	border-bottom: ($ft-control-start-size/8) solid transparent;
+  // }
+  //
+  // .ft-control-reset::after {
+  //   top: ($ft-control-start-size/2) - ($ft-control-start-size/4.5) - $ft-control-default-border-size;
+  //   left: ($ft-control-start-size/2) - ($ft-control-start-size/7) - $ft-control-default-border-size;
+  // }
 
 }
 
@@ -326,25 +429,25 @@
     height: $ft-control-start-size * $ft-control-scale-a;
   }
 
-  .ft-control-start-paused::before {
-    top: (($ft-control-start-size/2) - ($ft-control-default-border-size*2));
-    left: (($ft-control-start-size/2) - ($ft-control-default-border-size*0.5));
-  	border-top: (($ft-control-start-size/6) * $ft-control-scale-a) solid transparent;
-  	border-left: (($ft-control-start-size/3.5) * $ft-control-scale-a) solid white;
-  	border-bottom: (($ft-control-start-size/6) * $ft-control-scale-a) solid transparent;
-  }
+  // .ft-control-start-paused::before {
+  //   top: (($ft-control-start-size/2) - ($ft-control-default-border-size*2));
+  //   left: (($ft-control-start-size/2) - ($ft-control-default-border-size*0.5));
+  // 	border-top: (($ft-control-start-size/6) * $ft-control-scale-a) solid transparent;
+  // 	border-left: (($ft-control-start-size/3.5) * $ft-control-scale-a) solid white;
+  // 	border-bottom: (($ft-control-start-size/6) * $ft-control-scale-a) solid transparent;
+  // }
 
   .ft-control-adjust-length {
     bottom: $ft-control-adjust-length-landscape-bottom * 1.05;
     right: $ft-control-adjust-length-landscape-right * 1.05;
   }
 
-  .ft-control-adjust-length::before {
-    top: (($ft-control-default-size / 2) * $ft-control-scale-a) - $ft-control-default-border-size - ($ft-control-default-size / 8);
-    left: (($ft-control-default-size / 2) * $ft-control-scale-a) - $ft-control-default-border-size - ($ft-control-default-size / 8);
-    width: ($ft-control-default-size / 4.5) * $ft-control-scale-a;
-    height: ($ft-control-default-size / 4.5) * $ft-control-scale-a;
-  }
+  // .ft-control-adjust-length::before {
+  //   top: (($ft-control-default-size / 2) * $ft-control-scale-a) - $ft-control-default-border-size - ($ft-control-default-size / 8);
+  //   left: (($ft-control-default-size / 2) * $ft-control-scale-a) - $ft-control-default-border-size - ($ft-control-default-size / 8);
+  //   width: ($ft-control-default-size / 4.5) * $ft-control-scale-a;
+  //   height: ($ft-control-default-size / 4.5) * $ft-control-scale-a;
+  // }
 
   .ft-control-adjust-length-count {
     bottom: $ft-control-adjust-length-count-landscape-bottom;
@@ -373,17 +476,17 @@
     left: 1rem;
   }
 
-  .ft-control-reset::before, .ft-control-reset::after {
-    top: ($ft-control-start-size/2) - ($ft-control-start-size/4.5) - $ft-control-default-border-size;
-    left: ($ft-control-start-size/2) - ($ft-control-start-size/3) - $ft-control-default-border-size;
-  	border-top: ($ft-control-start-size/8) solid transparent;
-  	border-right: ($ft-control-start-size/5) solid white;
-  	border-bottom: ($ft-control-start-size/8) solid transparent;
-  }
-
-  .ft-control-reset::after {
-    top: ($ft-control-start-size/2) - ($ft-control-start-size/4.5) - $ft-control-default-border-size;
-    left: ($ft-control-start-size/2) - ($ft-control-start-size/7) - $ft-control-default-border-size;
-  }
+  // .ft-control-reset::before, .ft-control-reset::after {
+  //   top: ($ft-control-start-size/2) - ($ft-control-start-size/4.5) - $ft-control-default-border-size;
+  //   left: ($ft-control-start-size/2) - ($ft-control-start-size/3) - $ft-control-default-border-size;
+  // 	border-top: ($ft-control-start-size/8) solid transparent;
+  // 	border-right: ($ft-control-start-size/5) solid white;
+  // 	border-bottom: ($ft-control-start-size/8) solid transparent;
+  // }
+  //
+  // .ft-control-reset::after {
+  //   top: ($ft-control-start-size/2) - ($ft-control-start-size/4.5) - $ft-control-default-border-size;
+  //   left: ($ft-control-start-size/2) - ($ft-control-start-size/7) - $ft-control-default-border-size;
+  // }
 
 }
