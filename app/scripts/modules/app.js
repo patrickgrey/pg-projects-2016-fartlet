@@ -3,4 +3,3 @@ var ftAdjustLength = require('./ft-control-adjust-length.js');
 
 fControlEffectRadomir();
 ftAdjustLength();
-// ftAdjustLength.init();

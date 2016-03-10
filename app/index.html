@@ -28,6 +28,7 @@
   <body>
 
     <h1 class="ft-title">Fartlets!</h1>
+    
     <!-- Button defaults to type="submit" so using type="button" to make sure no side effects. -->
     <div class="ft-svg-controls">
       <button type="button" class="ft-control ft-control-start ft-control--effect-radomir ft-control-start-paused" aria-label="Start fartleks">
@@ -42,7 +43,7 @@
         <span class="ft-control-text">Start or pause</span>
       </button>
       
-      <button type="button" class="ft-control ft-control-adjust-length ft-control--effect-radomir" role="slider" aria-label="Adjust fartlek length in seconds.">
+      <button id="ft-control-adjust-length" type="button" class="ft-control ft-control-adjust-length ft-control--effect-radomir" role="slider" aria-label="Adjust fartlek length in seconds.">
         <svg viewBox="0 0 120 120" version="1.1"
           xmlns="http://www.w3.org/2000/svg" class="ft-control-icon">
           <circle cx="60" cy="60" r="50"/>

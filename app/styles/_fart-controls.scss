@@ -7,13 +7,14 @@
  * CONTROLS
  */
 
+
 /* Default button styles */
 .ft-control  {
  position: absolute;
  width: $ft-control-default-size;
  height: $ft-control-default-size;
  border-radius: 50%;
- background: $slate-grey;
+ // background: $slate-grey;
  border: $ft-control-default-border-size solid white;
  // border: none;
  background: none;
