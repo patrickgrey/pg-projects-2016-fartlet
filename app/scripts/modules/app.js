@@ -7,5 +7,5 @@ var ftUIController = require('./ft-ui-controller.js');
 fControlEffectRadomir();
 ftAdjustLength();
 ftSetsCount();
-ftStart();
-ftUIController();
+var ftStartObj = ftStart();
+ftUIController(ftStartObj);
