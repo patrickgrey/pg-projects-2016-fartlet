@@ -4,6 +4,11 @@
   <meta charset="utf-8">
   <title>Mocha Spec Runner</title>
   <link rel="stylesheet" href="../bower_components/mocha/mocha.css">
+  <style>
+    .ft-title, .ft-svg-controls, .ft-information {
+      display: none;
+    }
+  </style>
 </head>
 <body>
   <div id="mocha"></div>
@@ -105,7 +110,7 @@
   <script src="/bower_components/classie/classie.js"></script>
   <!-- endbower -->
   <!-- include source files here... -->
-  <script type="text/javascript" src="/app/scripts/main.js"></script>
+  <script type="text/javascript" src="bundle/BundleTest.js"></script>
   <!-- include spec files here... -->
   <script src="spec/test.js"></script>
   <script>

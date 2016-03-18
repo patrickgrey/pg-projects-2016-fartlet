@@ -25,6 +25,19 @@ gulp.task('scripts', () => {
         .pipe(gulp.dest('./app/scripts/'));
 });
 
+gulp.task('scripts-test', () => {
+    return browserify({
+            // paths: ['./app/scripts/'],
+            entries: ['./app/scripts/modules/appTest.js'],
+            //transform: ['reactify'],
+            standalone: 'AppTestAPI',
+            debug: true
+        })
+        .bundle()
+        .pipe(source('BundleTest.js'))
+        .pipe(gulp.dest('test/bundle/'));
+});
+
 gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
     .pipe($.plumber())
@@ -142,7 +155,7 @@ gulp.task('serve:dist', () => {
   });
 });
 
-gulp.task('serve:test', () => {
+gulp.task('serve:test', ['scripts-test'], () => {
   browserSync({
     notify: false,
     port: 9000,
@@ -155,9 +168,10 @@ gulp.task('serve:test', () => {
       }
     }
   });
+  
 
-  gulp.watch('test/spec/**/*.js').on('change', reload);
-  gulp.watch('test/spec/**/*.js', ['lint:test']);
+  gulp.watch(['test/bundle/**/*.js',  'test/index.html']).on('change', reload);
+  gulp.watch(['test/spec/**/*.js', 'app/scripts/modules/**/*.js'], ['scripts-test', 'lint:test']);
 });
 
 // inject bower components

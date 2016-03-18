@@ -1,4 +1,4 @@
-module.exports = function () {
+module.exports = function ftControlAdjustLength () {
   
   var fartletTime = 30,
       currentRotation = 0,
@@ -6,12 +6,15 @@ module.exports = function () {
       stepCount = 0,
       minimumSeconds = 5,
       currentSets = 10;
-      timeText = document.getElementById('ft-control-adjust-length-count');
+      timeText = document.getElementById('ft-control-adjust-length-count'),
+      moduleObj = {};
   
   
-  var  updateTime = function (e) {
+  moduleObj.updateTime = function (e, _rotation) {
     
-    var rotation = Math.round(this.target._gsTransform.rotation % 360);
+    console.log(currentRotation);
+    
+    var rotation = this.target ? Math.round(this.target._gsTransform.rotation % 360) : _rotation;
     
     if (rotation === currentRotation) {
         // do nothing
@@ -38,6 +41,8 @@ module.exports = function () {
     currentRotation = rotation;
     
     timeText.textContent = fartletTime.toString();
+    
+    return fartletTime.toString();
 
   }
   
@@ -48,8 +53,10 @@ module.exports = function () {
       throwProps:true,
       dragClickables:true,
       // onDrag: function(){console.log('hi');},
-      onDrag: updateTime,
-      onThrowUpdate:updateTime
+      onDrag: moduleObj.updateTime,
+      onThrowUpdate:moduleObj.updateTime
   });
+  
+  return moduleObj;
   
 }
