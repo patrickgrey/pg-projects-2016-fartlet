@@ -28,8 +28,7 @@ gulp.task('scripts', () => {
 gulp.task('scripts-test', () => {
     return browserify({
             // paths: ['./app/scripts/'],
-            entries: ['./app/scripts/modules/appTest.js'],
-            //transform: ['reactify'],
+            entries: ['./test/spec/modules/appTest.js'],
             standalone: 'AppTestAPI',
             debug: true
         })

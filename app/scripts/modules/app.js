@@ -1,6 +1,6 @@
 // http://www.ryandaigle.com/a/expose-javascript-api-with-browserify
 
-module.exports = function initApp () {
+module.exports = (function initApp () {
   
   var fControlEffectRadomir = require('./ft-control--effect-radomir.js');
   var ftAdjustLength = require('./ft-control-adjust-length.js');
@@ -14,4 +14,4 @@ module.exports = function initApp () {
   var ftStartObj = ftStart();
   ftUIController(ftStartObj);
 
-}
+})();
